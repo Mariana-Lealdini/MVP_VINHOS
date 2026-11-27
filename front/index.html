@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualidade de Vinhos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>Qualidade de Vinhos</h1>
+        <p>Informe as medidas químicas de um vinho tinto ou branco da denominação Vinho Verde para prever se a qualidade é baixa, média ou alta.</p>
+    </header>
+
+    <main class="conteudo">
+        <section class="cartao">
+            <div class="linha-exemplo">
+                <label for="exemplo">Preencher com um exemplo</label>
+                <select id="exemplo">
+                    <option value="">Selecione</option>
+                    <option value="0">Vinho 1: tinto, acidez volátil alta e pouco álcool</option>
+                    <option value="1">Vinho 2: tinto, medidas intermediárias</option>
+                    <option value="2">Vinho 3: branco, medidas típicas</option>
+                    <option value="3">Vinho 4: branco, álcool alto e poucos cloretos</option>
+                </select>
+            </div>
+
+            <form id="formulario" novalidate>
+                <div class="grade">
+                    <div class="campo">
+                        <label for="tipo_branco">Tipo</label>
+                        <select id="tipo_branco" name="tipo_branco">
+                            <option value="0">Tinto</option>
+                            <option value="1">Branco</option>
+                        </select>
+                    </div>
+                    <div class="campo">
+                        <label for="acidez_fixa">Acidez fixa <span>g/dm³</span></label>
+                        <input type="number" step="any" id="acidez_fixa" name="acidez_fixa" placeholder="2 a 20">
+                    </div>
+                    <div class="campo">
+                        <label for="acidez_volatil">Acidez volátil <span>g/dm³</span></label>
+                        <input type="number" step="any" id="acidez_volatil" name="acidez_volatil" placeholder="0 a 2">
+                    </div>
+                    <div class="campo">
+                        <label for="acido_citrico">Ácido cítrico <span>g/dm³</span></label>
+                        <input type="number" step="any" id="acido_citrico" name="acido_citrico" placeholder="0 a 2">
+                    </div>
+                    <div class="campo">
+                        <label for="acucar_residual">Açúcar residual <span>g/dm³</span></label>
+                        <input type="number" step="any" id="acucar_residual" name="acucar_residual" placeholder="0 a 70">
+                    </div>
+                    <div class="campo">
+                        <label for="cloretos">Cloretos <span>g/dm³</span></label>
+                        <input type="number" step="any" id="cloretos" name="cloretos" placeholder="0 a 1">
+                    </div>
+                    <div class="campo">
+                        <label for="dioxido_enxofre_livre">SO₂ livre <span>mg/dm³</span></label>
+                        <input type="number" step="any" id="dioxido_enxofre_livre" name="dioxido_enxofre_livre" placeholder="0 a 300">
+                    </div>
+                    <div class="campo">
+                        <label for="dioxido_enxofre_total">SO₂ total <span>mg/dm³</span></label>
+                        <input type="number" step="any" id="dioxido_enxofre_total" name="dioxido_enxofre_total" placeholder="0 a 500">
+                    </div>
+                    <div class="campo">
+                        <label for="densidade">Densidade <span>g/cm³</span></label>
+                        <input type="number" step="any" id="densidade" name="densidade" placeholder="0,98 a 1,05">
+                    </div>
+                    <div class="campo">
+                        <label for="ph">pH</label>
+                        <input type="number" step="any" id="ph" name="ph" placeholder="2 a 5">
+                    </div>
+                    <div class="campo">
+                        <label for="sulfatos">Sulfatos <span>g/dm³</span></label>
+                        <input type="number" step="any" id="sulfatos" name="sulfatos" placeholder="0 a 2,5">
+                    </div>
+                    <div class="campo">
+                        <label for="alcool">Álcool <span>% vol.</span></label>
+                        <input type="number" step="any" id="alcool" name="alcool" placeholder="5 a 20">
+                    </div>
+                </div>
+
+                <div class="acoes">
+                    <button type="reset" class="botao secundario" id="limpar">Limpar</button>
+                    <button type="submit" class="botao" id="prever">Prever qualidade</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="cartao resultado" id="resultado" hidden>
+            <h2>Resultado</h2>
+            <p class="classe-prevista">Qualidade prevista: <strong id="classe"></strong></p>
+            <div id="probabilidades"></div>
+        </section>
+
+        <p class="mensagem-erro" id="erro" role="alert" hidden></p>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
